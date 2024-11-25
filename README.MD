@@ -21,11 +21,6 @@ To run the notebook, ensure the following Python libraries are installed:
 - `matplotlib`  
 - `scikit-image`  
 
-Install dependencies with:  
-```bash
-pip install -r requirements.txt
-```
-
 ## Usage
 1. Clone this repository:
 
