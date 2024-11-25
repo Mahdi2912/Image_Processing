@@ -3,22 +3,22 @@ import matplotlib.patches as patches
 import numpy as np
 from skimage import io
 # ==================================================================================================
-def load_img(fname, dirname='Image Processing with Python course exercise dataset/chapter 1/'):
+def load_img(fname, dirname='images/'):
   try:
-    # Load the image using skimage.io.imread
-    img_path = dirname + fname
-    Im_array = io.imread(img_path)
-    
-    # Check if the image has an alpha channel (4 channels)
-    if Im_array.ndim == 3 and Im_array.shape[-1] == 4:
-        # Remove the alpha channel by selecting the first three channels (RGB)
-        Im_array = Im_array[..., :3]
-    
-    # Handle grayscale images (single channel)
-    elif Im_array.ndim == 2:  # Grayscale image
-        Im_array = np.expand_dims(Im_array, axis=-1)  # Convert to 3D (height, width, 1)
-    
-    return Im_array
+      # Load the image using skimage.io.imread
+      img_path = dirname + fname
+      Im_array = io.imread(img_path)
+      
+      # Check if the image has an alpha channel (4 channels)
+      if Im_array.ndim == 3 and Im_array.shape[-1] == 4:
+          # Remove the alpha channel by selecting the first three channels (RGB)
+          Im_array = Im_array[..., :3]
+      
+      # Handle grayscale images (single channel)
+      elif Im_array.ndim == 2:  # Grayscale image
+          Im_array = np.expand_dims(Im_array, axis=-1)  # Convert to 3D (height, width, 1)
+      
+      return Im_array
   except Exception as e:
     print(f"Error loading image: {e}")
     return None
