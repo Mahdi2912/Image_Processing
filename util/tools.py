@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
+from skimage import io
 # ==================================================================================================
 def load_img(fname, dirname='Image Processing with Python course exercise dataset/chapter 1/'):
   try:
@@ -110,11 +111,11 @@ def getFaceRectangle(d):
     return face
 # --------------------------------------------------------------------------------------------------  
 def mergeBlurryFace(original, gaussian_image):
-     # X and Y starting points of the face rectangle
-    x, y  = d['r'], d['c']
-    # The width and height of the face rectangle
-    width, height = d['r'] + d['width'],  d['c'] + d['height']
-    
-    original[ x:width, y:height] =  gaussian_image
-    return original
+  # X and Y starting points of the face rectangle
+  x, y  = d['r'], d['c'] # type: ignore
+  # The width and height of the face rectangle
+  width, height = d['r'] + d['width'],  d['c'] + d['height'] # type: ignore
+  
+  original[ x:width, y:height] =  gaussian_image
+  return original
 # ==================================================================================================
